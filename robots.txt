@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /catalogo/catalogo.html
+Disallow: /assets/
+Crawl-delay: 1
+
+Sitemap: /sitemap.xml

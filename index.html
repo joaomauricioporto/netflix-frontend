@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Netflix - Selecione seu perfil para continuar assistindo">
+    <title>Quem está assistindo? - Netflix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Toggle de Tema -->
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro/escuro">
+        <span class="toggle-icon">☀️</span>
+    </button>
+
+    <!-- Header -->
+    <header class="netflix-header">
+        <img class="netflix-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="profile-selection">
+            <h1>Quem está assistindo?</h1>
+            
+            <!-- Profiles List -->
+            <ul class="profiles">
+                <li class="profile">
+                    <button type="button" aria-label="JM">
+                        <figure>
+                            <img src="/assets/perfil-1.png" alt="Perfil JM">
+                            <figcaption>JM</figcaption>
+                        </figure>
+                    </button>
+                </li>
+                <li class="profile">
+                    <button type="button" aria-label="SUFA">
+                        <figure>
+                            <img src="/assets/perfil-2.png" alt="Perfil SUFA">
+                            <figcaption>SUFA</figcaption>
+                        </figure>
+                    </button>
+                </li>
+                <li class="profile">
+                    <button type="button" aria-label="TUCA">
+                        <figure>
+                            <img src="/assets/perfil-3.png" alt="Perfil TUCA">
+                            <figcaption>TUCA</figcaption>
+                        </figure>
+                    </button>
+                </li>
+                <li class="profile">
+                    <button type="button" aria-label="LÍVIA">
+                        <figure>
+                            <img src="/assets/perfil-4.png" alt="Perfil LÍVIA">
+                            <figcaption>LÍVIA</figcaption>
+                        </figure>
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Manage Profiles Button -->
+            <div class="manage-container">
+                <button type="button" class="manage-profiles-btn" aria-label="Gerenciar Perfis">
+                    Gerenciar Perfis
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="netflix-footer">
+        <p>&copy; 2026 Netflix Clone. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="profile-manager.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>
