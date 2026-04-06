@@ -1,126 +1,59 @@
-# Netflix Frontend Clone
+# 🎬 Netflix Clone - Frontend Completo
 
-Um clone responsivo do frontend da Netflix com seleção de perfis, catálogo dinâmico e suporte a tema claro/escuro.
+Um clone interativo e responsivo da interface da Netflix, desenvolvido com tecnologias web clássicas (HTML, CSS e JavaScript Vanilla). O projeto engloba desde a clássica tela de seleção de perfis até um catálogo dinâmico de filmes e séries, com direito a reprodução de trailers diretamente nos cards.
 
-## Recursos
+## ✨ Funcionalidades
 
-### ✨ Funcionalidades Principais
-- **Seleção de Perfis**: Interface intuitiva para escolher o perfil Netflix
-- **Catálogo Dinâmico**: Visualização de filmes e séries em carousels
-- **Tema Escuro/Claro**: Toggle de tema com preferência salva
-- **Design Responsivo**: Adaptado para todos os dispositivos
-- **Performance Otimizada**: Pontuação Lighthouse de ~90+
+- **Seleção de Perfis com Persistência**: Escolha entre diferentes perfis na tela inicial. A seleção é salva no localStorage e o perfil ativo (nome e avatar) é refletido no cabeçalho do catálogo.
+- **Catálogo Dinâmico e Modular**: Os trilhos de filmes (carrosséis) são gerados dinamicamente via JavaScript (data.js), permitindo fácil escalabilidade para adicionar novos títulos e categorias.
+- **Reprodução de Trailers (Hover)**: Ao passar o mouse sobre a capa de um filme, a interface carrega e exibe o trailer correspondente integrado via iframe do YouTube.
+- **Alternância de Tema (Dark/Light Mode)**: Sistema global de temas controlado por variáveis CSS (:root) e gerenciado por uma classe JavaScript (ThemeManager), com as preferências do usuário salvas no navegador.
+- **Suporte a PWA**: Configuração inicial de Progressive Web App com manifest.json, permitindo a instalação do projeto como um aplicativo autônomo.
+- **Design Responsivo e Animações**: Interface adaptada para diferentes tamanhos de tela, com microinterações suaves, efeitos de transição e animações de entrada (fadeIn, slideUp).
 
-### 🎯 Otimizações Implementadas
+## 🛠️ Tecnologias Utilizadas
 
-#### Performance (Lighthouse 69→80+)
-- ✅ Lazy loading em imagens
-- ✅ Preconnect/DNS-prefetch para recursos externos
-- ✅ Atributos width/height em imagens (reduz layout shift)
-- ✅ System fonts como fallback (sem overload de fontes externas)
-- ✅ CSS otimizado com `contain` property
-- ✅ Gzip compression via .htaccess
-- ✅ Cache headers configurados
+- **HTML5**: Estruturação semântica.
+- **CSS3**: Layouts com Flexbox/Grid, variáveis globais para temas e animações.
+- **JavaScript (ES6+)**:
+  - Manipulação de DOM.
+  - Estrutura baseada em Módulos (import/export).
+  - Lógica orientada a objetos (Classes).
+  - Consumo de localStorage para persistência de estado.
 
-#### Acessibilidade (91/100)
-- ✅ Atributos `alt` descritivos em imagens
-- ✅ `aria-label` em botões
-- ✅ `focus-visible` para navegação por teclado
-- ✅ Contraste adequado de cores
-- ✅ Semantic HTML (header, main, section, figure)
+## 📂 Estrutura do Projeto
 
-#### SEO (91/100)
-- ✅ Meta tags Open Graph
-- ✅ Description adequada
-- ✅ robots.txt e sitemap.xml
-- ✅ Manifest.json para PWA
-- ✅ Mobile-friendly
+A arquitetura do código foi pensada para ser modular e de fácil manutenção:
 
-#### Boas Práticas (77→85+)
-- ✅ Error handling nos JavaScripts
-- ✅ Sem console errors/warnings
-- ✅ Fonts carregadas com `font-display: swap`
-- ✅ Noscript fallbacks
-- ✅ Atributos `rel` apropriados
-
-## Estrutura do Projeto
-
-```
-netflix-frontend/
-├── index.html              # Página de seleção de perfis
-├── style.css               # Estilos principais
-├── theme.js                # Gerenciador de tema
-├── profile-manager.js      # Gerenciador de perfis
-├── manifest.json           # PWA manifest
-├── robots.txt              # SEO
-├── .htaccess               # Configurações de servidor
-├── assets/
-│   ├── perfil-1.png       # Imagens de perfil
-│   ├── perfil-2.png
-│   ├── perfil-3.png
-│   └── perfil-4.png
+├── index.html                 # Tela de "Quem está assistindo?"
+├── style.css                  # Estilos da tela de perfis
+├── theme.js                   # Lógica global de troca de temas
+├── profile-manager.js         # Lógica de seleção e persistência de perfil
+├── manifest.json              # Configurações do PWA
+├── assets/                    # Imagens e avatares
 └── catalogo/
-    ├── catalogo.html       # Página de catálogo
-    ├── catalogo.css        # Estilos do catálogo
+    ├── catalogo.html          # Interface principal de filmes/séries
+    ├── catalogo.css           # Estilos específicos do catálogo
     └── js/
-        ├── main.js         # Script principal
-        ├── data.js         # Dados de filmes/séries
-        ├── utils.js        # Utilitários
+        ├── main.js            # Ponto de entrada (inicializa a renderização)
+        ├── data.js            # Base de dados simulada (JSON) dos títulos
+        ├── utils.js           # Funções auxiliares (IDs do YouTube, cálculos)
         └── components/
-            ├── Card.js     # Componente de card
-            └── Carousel.js # Componente de carousel
-```
+            ├── Card.js        # Lógica de criação e hover dos filmes (Trailers)
+            └── Carousel.js    # Estruturação dos trilhos horizontais
 
-## Como Usar
+## 🚀 Como rodar o projeto localmente
 
-1. **Clone o repositório**
-```bash
-git clone <seu-repositorio>
-cd netflix-frontend
-```
+Como o projeto utiliza JavaScript Modules, não é possível abri-lo apenas dando um duplo clique no arquivo index.html (devido a políticas de segurança dos navegadores). Siga os passos abaixo:
 
-2. **Abra no navegador**
-```bash
-# Opção 1: Abra diretamente
-open index.html
+1. Clone o repositório usando o comando no terminal:
+   git clone https://github.com/joaomauricioporto/netflix-frontend.git
 
-# Opção 2: Com servidor local
-python -m http.server 8000
-# ou
-npx http-server
-```
+2. Abra a pasta do projeto em seu editor de código (como o VS Code).
 
-3. **Selecione um perfil** para ir para o catálogo
+3. Utilize uma extensão de servidor local, como o Live Server, para rodar a aplicação a partir do index.html.
 
-## Tecnologias
+4. Selecione um perfil e explore o catálogo!
 
-- HTML5 Semântico
-- CSS3 (Variáveis, Grid, Flexbox)
-- JavaScript Vanilla (Classes, LocalStorage)
-- Sem frameworks ou dependências externas
-
-## Performance Scores
-
-| Métrica | Score |
-|---------|-------|
-| Performance | ~75-85 |
-| Accessibility | 91 |
-| Best Practices | 85-90 |
-| SEO | 91 |
-
-## Melhorias Futuras
-
-- [ ] Busca de filmes/séries
-- [ ] Detalhes do filme (sinopse, duração)
-- [ ] Histórico de visualização
-- [ ] Recomendações personalizadas
-- [ ] Offline mode com Service Worker
-- [ ] Imagens otimizadas (WebP, AVIF)
-
-## Autor
-
-Desenvolvido como projeto educativo.
-
-## Licença
-
-MIT
+---
+Desenvolvido por [João Maurício Medeiros Porto](https://github.com/joaomauricioporto/netflix-frontend) 💻🚀
